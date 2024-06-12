@@ -21,7 +21,7 @@ public class Exercise {
 
     private String title;
 
-    private String type;
+    private String type;//어느 부위 운동인지에 대한 컬럼임. 예시: 등, 가슴, 하체
 
     @OneToMany(mappedBy = "exercise")
     private List<Record> records;
