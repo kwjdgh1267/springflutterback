@@ -23,7 +23,7 @@ public class RecordService {
         Record savedRecord = recordRepository.save(new Record(foundExercise, dto.getWeight(), dto.getCount(), dto.getSets(), dto.getMonth(), dto.getDate(),dto.getYear()));
         return ResponseEntity.ok().body(savedRecord);
     }
-
+    //날짜에 해당하는 운동 기록들을 가져온다.
     public ResponseEntity<List<ResRecordDto>> findRecordByYearMonthDate(int year, int month, int date) {
         List<Record> foundRecords = recordRepository.findAllByYearAndMonthAndDate(year, month, date);
         List<ResRecordDto> dtos = foundRecords.stream()
