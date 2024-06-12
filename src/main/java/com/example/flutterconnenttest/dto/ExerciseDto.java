@@ -8,4 +8,5 @@ import lombok.Data;
 public class ExerciseDto {
     private Long id;
     private String title;
+    private String type;
 }

@@ -1,13 +1,15 @@
 package com.example.flutterconnenttest.dto;
 
-import com.example.flutterconnenttest.entity.Exercise;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
 public class ResRecordDto {
+    private Long id;
     private String exercise;
+
+    private String type;
 
     private double weight;
 

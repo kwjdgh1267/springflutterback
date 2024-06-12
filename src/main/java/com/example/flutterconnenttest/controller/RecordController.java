@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin
 public class RecordController {
     private final RecordService recordService;
 
@@ -23,6 +24,11 @@ public class RecordController {
     public ResponseEntity<List<ResRecordDto>> findRecordByYearMonthDate(@RequestParam(name = "year") int year, @RequestParam(name = "month") int month
             , @RequestParam(name = "date") int date){
         return recordService.findRecordByYearMonthDate(year, month,date);
+    }
+
+    @DeleteMapping("/record/{id}")
+    public ResponseEntity<Record> deleteRecord(@PathVariable("id")Long id){
+        return recordService.deleteRecord(id);
     }
 
 }

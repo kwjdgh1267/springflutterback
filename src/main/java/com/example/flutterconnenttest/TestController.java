@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 public class TestController {
 
-    @GetMapping("/sibal")
+    @GetMapping("/test")
     public String test1(){
-        return "sibal";
+        return "test";
     }
 }

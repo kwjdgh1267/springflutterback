@@ -21,10 +21,13 @@ public class Exercise {
 
     private String title;
 
+    private String type;
+
     @OneToMany(mappedBy = "exercise")
     private List<Record> records;
 
-    public Exercise(String title) {
+    public Exercise(String title,String type) {
         this.title = title;
+        this.type= type;
     }
 }

@@ -27,9 +27,15 @@ public class RecordService {
     public ResponseEntity<List<ResRecordDto>> findRecordByYearMonthDate(int year, int month, int date) {
         List<Record> foundRecords = recordRepository.findAllByYearAndMonthAndDate(year, month, date);
         List<ResRecordDto> dtos = foundRecords.stream()
-                .map((record)-> new ResRecordDto(record.getExercise().getTitle(),
+                .map((record)-> new ResRecordDto(record.getId(),record.getExercise().getTitle(), record.getExercise().getType(),
                         record.getWeight(), record.getYear(), record.getCount(),
                         record.getSets(), record.getMonth(), record.getDate() )).collect(Collectors.toList());
         return ResponseEntity.ok().body(dtos);
+    }
+
+    public ResponseEntity<Record> deleteRecord(Long id) {
+        Record found = recordRepository.findById(id).orElseThrow();
+        recordRepository.delete(found);
+        return ResponseEntity.ok().body(found);
     }
 }
