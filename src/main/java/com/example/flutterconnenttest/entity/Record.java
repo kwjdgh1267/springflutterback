@@ -18,7 +18,7 @@ public class Record {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "exercise_id")
-    @JsonIgnore
+    @JsonIgnore //lazy 로딩으로 인해서 프록시 객체를 가져오면 에러 발생해서 추가
     private Exercise exercise;
 
     private double weight;
